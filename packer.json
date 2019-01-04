@@ -34,5 +34,12 @@
           "sudo apt install -y apache2",
           "sudo ufw allow 'Apache Secure'"
 		]
-	}]
+    }],
+    "post-processors": [
+        {
+          "type": "manifest",
+          "output": "manifest.json",
+          "strip_path": true
+        }
+      ]
 }
