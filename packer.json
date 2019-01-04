@@ -31,7 +31,8 @@
 		"type": "shell",
 		"inline": [
           "sudo apt update",
-          "sudo apt install -y apache2"
+          "sudo apt install -y apache2",
+          "sudo ufw allow 'Apache Secure'"
 		]
 	}]
 }
