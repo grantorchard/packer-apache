@@ -1,0 +1,38 @@
+{
+	"min_packer_version": "0.12.0",
+	"variables": {
+		"aws_region": "ap-southeast-2",
+		"aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
+        "vcenter_server": "{{env `vcenter_server`}}",
+        "vsphere_template": "{{env `vsphere_template`}}",
+        "vcenter_username": "{{env `vcenter_username`}}",
+        "vcenter_password": "{{env `vcenter_password`}}"
+
+	},
+	"builders": [{
+        "type": "vsphere-clone",
+        "vcenter_server": "{{user `vcenter_server`}}",
+        "username": "{{user `vcenter_username`}}",
+        "password": "{{user `vcenter_password`}}",
+        "insecure_connection": "true",
+        "template": "{{user `vsphere_template`}}",
+        "vm_name":  "{{user `vsphere_template`}}-latest",
+        "cluster": "{{user `vsphere_cluster`}}"
+    }],
+	"provisioners": [{
+		"type": "shell",
+		"inline": [
+          "sudo apt update",
+          "sudo apt install -y apache2",
+          "sudo ufw allow 'Apache Secure'"
+		]
+    }],
+    "post-processors": [
+        {
+          "type": "manifest",
+          "output": "manifest.json",
+          "strip_path": true
+        }
+      ]
+}
