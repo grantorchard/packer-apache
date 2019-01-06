@@ -20,12 +20,13 @@
         "insecure_connection": "true",
         "template": "{{user `vsphere_template`}}",
         "vm_name":  "{{user `vsphere_template`}}-latest",
-        "cluster": "{{user `vsphere_cluster`}}"
+        "cluster": "{{user `vsphere_cluster`}}",
+        "communicator": "ssh",
+        "ssh_username": "{{user `os_username`}}",
+        "ssh_password": "{{user `os_password`}}"
     }],
 	"provisioners": [{
         "type": "shell",
-        "ssh_username": "{{user `os_username`}}",
-        "ssh_password": "{{user `os_password`}}",
 		"inline": [
           "sudo apt update",
           "sudo apt install -y apache2",
