@@ -7,8 +7,10 @@
         "vcenter_server": "{{env `vcenter_server`}}",
         "vsphere_template": "{{env `vsphere_template`}}",
         "vcenter_username": "{{env `vcenter_username`}}",
-        "vcenter_password": "{{env `vcenter_password`}}"
-
+        "vcenter_password": "{{env `vcenter_password`}}",
+        "vsphere_cluster": "{{env `vsphere_cluster`}}",
+        "os_username": "{{env `os_username`}}",
+        "os_password": "{{env `os_password`}}"
 	},
 	"builders": [{
         "type": "vsphere-clone",
@@ -21,7 +23,9 @@
         "cluster": "{{user `vsphere_cluster`}}"
     }],
 	"provisioners": [{
-		"type": "shell",
+        "type": "shell",
+        "ssh_username": "{{user `os_username`}}",
+        "ssh_password": "{{user `os_password`}}",
 		"inline": [
           "sudo apt update",
           "sudo apt install -y apache2",
