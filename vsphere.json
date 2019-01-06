@@ -9,6 +9,8 @@
         "vcenter_username": "{{env `vcenter_username`}}",
         "vcenter_password": "{{env `vcenter_password`}}",
         "vsphere_cluster": "{{env `vsphere_cluster`}}",
+        "vsphere_resource_pool": "{{env `vsphere_resource_pool`}}",
+        "vsphere_host": "{{env `vsphere_host`}}",
         "os_username": "{{env `os_username`}}",
         "os_password": "{{env `os_password`}}"
 	},
@@ -21,6 +23,8 @@
         "template": "{{user `vsphere_template`}}",
         "vm_name":  "{{user `vsphere_template`}}-latest",
         "cluster": "{{user `vsphere_cluster`}}",
+        "host": "{{user `vsphere_host`}}",
+        "resource_pool": "{{user `vsphere_resource_pool`}}",
         "communicator": "ssh",
         "ssh_username": "{{user `os_username`}}",
         "ssh_password": "{{user `os_password`}}"
