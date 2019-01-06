@@ -34,10 +34,8 @@
 	"provisioners": [{
         "type": "shell",
 		"inline": [
-            "sudo rm /var/lib/apt/lists/lock",
-            "sudo dpkg --configure -a",
-            "sudo apt update",
-            "sudo apt install -y apache2",
+            "sudo aptdcon update",
+            "sudo aptdcon install -y apache2",
             "sudo ufw allow 'Apache Secure'"
 		]
     }],
