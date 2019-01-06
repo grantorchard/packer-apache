@@ -34,8 +34,8 @@
 	"provisioners": [{
         "type": "shell",
 		"inline": [
-            "sudo aptdcon update",
-            "sudo aptdcon install -y apache2",
+            "sudo aptdcon --refresh",
+            "sudo aptdcon --install apache2",
             "sudo ufw allow 'Apache Secure'"
 		]
     }],
