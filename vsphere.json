@@ -34,9 +34,11 @@
 	"provisioners": [{
         "type": "shell",
 		"inline": [
-          "sudo apt update",
-          "sudo apt install -y apache2",
-          "sudo ufw allow 'Apache Secure'"
+            "sudo rm /var/lib/apt/lists/lock",
+            "sudo dpkg --configure -a",
+            "sudo apt update",
+            "sudo apt install -y apache2",
+            "sudo ufw allow 'Apache Secure'"
 		]
     }],
     "post-processors": [
