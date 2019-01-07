@@ -35,8 +35,10 @@
         "type": "shell",
 		"inline": [
             "sudo aptdcon --refresh",
-            "sudo aptdcon --install apache2",
-            "sudo ufw allow 'Apache Secure'"
+            "sudo apt install apache2",
+            "sudo ufw allow 'Apache Secure'",
+            "sudo apt install cloud-init",
+            "sudo sed -i 's/datasource_list*/datasource_list: [ OVF, None ]' /etc/cloud/cloud.cfg.d/90_dpkg.cfg"
 		]
     }],
     "post-processors": [
