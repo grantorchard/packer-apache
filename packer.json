@@ -48,7 +48,7 @@
         },
         {
             "type": "shell-local",
-            "inline": ["export ami_name=apache-ubuntu-{{isotime | clean_ami_name}}"]
+            "inline": ["export ami_name=apache-ubuntu-{{isotime}}"]
           }
       ]
 }
