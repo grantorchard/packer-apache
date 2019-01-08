@@ -19,7 +19,6 @@
 		"instance_type": "t2.medium",
 		"name": "ubuntu16-ami",
 		"region": "{{user `aws_region`}}",
-		"type": "amazon-ebs",
 		"source_ami_filter": {
 			"filters": {
 				"virtualization-type": "hvm",
@@ -43,9 +42,13 @@
     }],
     "post-processors": [
         {
-          "type": "manifest",
-          "output": "manifest.json",
-          "strip_path": true
-        }
+            "type": "manifest",
+            "output": "manifest.json",
+            "strip_path": true
+        },
+        {
+            "type": "shell-local",
+            "inline": ["export ami_name=apache-ubuntu-{{isotime | clean_ami_name}}"]
+          }
       ]
 }
