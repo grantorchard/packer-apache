@@ -17,7 +17,7 @@
 		"ami_name": "apache-ubuntu-{{isotime | clean_ami_name}}",
 		"ami_description": "An Ubuntu 16.04 AMI that has Apache installed.",
 		"instance_type": "t2.medium",
-		"name": "ubuntu16-ami",
+		"name": "apache-ubuntu-{{isotime}}",
 		"region": "{{user `aws_region`}}",
 		"source_ami_filter": {
 			"filters": {
